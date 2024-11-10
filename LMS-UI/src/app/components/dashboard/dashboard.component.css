@@ -1,0 +1,21 @@
+.dashboard {
+    padding: 20px;
+  }
+  .dashboard .overview {
+    display: flex;
+    gap: 20px;
+  }
+  .dashboard .overview .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 20%;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  .dashboard .overview .card h3 {
+    margin-bottom: 10px;
+  }
+  .dashboard .overview .card a {
+    text-decoration: none;
+    color: #007bff;
+  }  

@@ -1,0 +1,32 @@
+<div class="grades">
+    <h2>Your Grades</h2>
+    
+    <div class="grade-summary">
+      <p>Total GPA: 3.8</p>
+      <p>Completed Courses: 6</p>
+      <p>Ongoing Courses: 2</p>
+    </div>
+  
+    <ul class="grade-list">
+      <li  class="grade-item">
+        <div class="grade-info">
+          <h3>{{ "grade.course "}}</h3>
+          <p>Instructor: {{ "grade.instructor" }}</p>
+          <p>Grade: {{ "grade.grade" }}</p>
+          <p>Percentage: {{ "grade.percentage" }}%</p>
+          <p>Status: {{ "grade.status" }}</p>
+        </div>
+  
+        <div class="grade-feedback">
+          <h4>Feedback</h4>
+          <p>{{ "grade.feedback" }}</p>
+        </div>
+  
+        <div class="grade-actions">
+          <button class="view-details">View Details</button>
+          <button class="download-report">Download Report</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
