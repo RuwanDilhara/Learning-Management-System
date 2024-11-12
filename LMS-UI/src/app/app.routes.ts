@@ -1,77 +1,82 @@
 import { Routes } from '@angular/router';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { ScheduleComponent } from './components/schedule/schedule.component';
-import { AssignmentTrackingComponent } from './components/assignment-tracking/assignment-tracking.component';
-import { RemindersComponent } from './components/reminders/reminders.component';
-import { TimetableComponent } from './components/timetable/timetable.component';
-import { NotesComponent } from './components/notes/notes.component';
-import { GoalsComponent } from './components/goals/goals.component';
-import { AnalyticsComponent } from './components/analytics/analytics.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { CoursesComponent } from './components/courses/courses.component';
-import { ViewGradeComponent } from './components/view-grade/view-grade.component';
-import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-
+import { StudentDashboardComponent } from './component/student-component/student-dashboard/student-dashboard.component';
+import { MainStudentDashboardComponent } from './pages/main-student-dashboard/main-student-dashboard.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { StudentViewAllCoursesComponent } from './component/student-component/student-view-all-courses/student-view-all-courses.component';
+import { StudentMyCourseComponent } from './component/student-component/student-my-course/student-my-course.component';
+import { StudentGradeComponent } from './component/student-component/student-grade/student-grade.component';
+import { StudentAssignmentComponent } from './component/student-component/student-assignment/student-assignment.component';
+import { StudentRemindersComponent } from './component/student-component/student-reminders/student-reminders.component';
+import { StudentViewGoalComponent } from './component/student-component/student-view-goal/student-view-goal.component';
+import { StudentAnalyticsComponent } from './component/student-component/student-analytics/student-analytics.component';
+import { LoginFormComponent } from './pages/login-form/login-form.component';
+import { RegisterFormComponent } from './pages/register-form/register-form.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 export const routes: Routes = [
-  { path: '', component:LoginComponent, pathMatch: 'full' },
-  {
-    path:'login',
-    component:LoginComponent
-  },
-  {
-    path:'register',
-    component:RegisterComponent
-  },
-  {
-    path:'student-dashboard',
-    component:StudentDashboardComponent
-  },
-  {
-    path:'courses',
-    component:CoursesComponent,
-  },
-  {
-    path:'dashboard',
-    component:DashboardComponent
-  },
-  { 
-    path: 'profile',
-    component: UserProfileComponent
-  },
-  {
-    path: 'schedule',
-     component: ScheduleComponent
-  },
-  {
-    path: 'assignments', 
-    component: AssignmentTrackingComponent
-  },
-  {
-    path:'reminders',
-    component:RemindersComponent
-  },
-  {
-    path:'timetable',
-    component:TimetableComponent
-  },
-  {
-    path:'notes',
-    component:NotesComponent
-  },
-  {
-    path:'goals',
-    component:GoalsComponent
-  },
-  {
-    path:'analytics',
-    component:AnalyticsComponent
-  },
-  {
-    path:'viewgrade',
-    component:ViewGradeComponent
-  }
+    {path:'',redirectTo:'homepage',pathMatch:'full'},
+    {
+        path:'student',
+        component:MainStudentDashboardComponent,
+        children:[
+            {path:'',redirectTo:'dashboard',pathMatch:'full'},
+            {
+                path:'dashboard',
+                component:StudentDashboardComponent
+                
+            },
+            {
+                path:'all-courses',
+                component:StudentViewAllCoursesComponent
+                
+            },
+            {
+                path:'my-courses',
+                component:StudentMyCourseComponent
+                
+            },
+            {
+                path:'grade',
+                component:StudentGradeComponent
+                
+            },
+            {
+                path:'assignment',
+                component:StudentAssignmentComponent
 
+            },
+            {
+                path:'reminders',
+                component:StudentRemindersComponent
+
+            },
+            {
+                path:'goal',
+                component:StudentViewGoalComponent
+
+            },
+            {
+                path:'analiytics',
+                component:StudentAnalyticsComponent              
+            }
+        ]
+    },
+    {
+        path:'login',
+        component:LoginFormComponent
+    },
+    {
+        path:'register',
+        component:RegisterFormComponent
+    },
+    {
+        path:'homepage',
+        component:HomePageComponent,
+        children:[
+            {
+                path:'all-courses',
+                component:StudentViewAllCoursesComponent
+            }
+        ]
+    }
 ];

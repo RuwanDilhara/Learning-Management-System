@@ -1,9 +1,0 @@
-.navbar {
-    width: calc(100% - 250px); /* Adjust for sidebar */
-    margin-left: 250px;
-  }
-  .navbar-brand {
-    font-weight: bold;
-    font-size: 1.25rem;
-  }
-  

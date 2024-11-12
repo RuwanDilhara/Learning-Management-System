@@ -1,0 +1,31 @@
+<div class="login-container">
+    <form >
+      <h2>Login</h2>
+  
+      <div>
+        <label for="userType">User Type:</label>
+        <select id="userType" formControlName="userType">
+          <option value="Student">Student</option>
+          <option value="Teacher">Teacher</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email">
+        
+      </div>
+  
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password">
+        
+      </div>
+  
+      <button type="submit" >Login</button>
+  
+      <p class="register-link">Don't have an account? <a routerLink="/register">Register here</a></p>
+    </form>
+  </div>
+  

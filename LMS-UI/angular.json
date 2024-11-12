@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "RLP": {
+    "LMS": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/rlp",
+            "outputPath": "dist/lms",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,10 +27,9 @@
               }
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css"
+              "src/styles.css"
             ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -60,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "RLP:build:production"
+              "buildTarget": "LMS:build:production"
             },
             "development": {
-              "buildTarget": "RLP:build:development"
+              "buildTarget": "LMS:build:development"
             }
           },
           "defaultConfiguration": "development"

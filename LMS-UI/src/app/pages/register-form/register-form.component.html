@@ -1,0 +1,39 @@
+<div class="login-container">
+    <form enctype="multipart/form-data">
+        <h2 class="d-flex justify-content-center">Register</h2>
+        
+          <label for="name">Name:</label>
+          <input id="name" type="text" formControlName="name">
+          
+          <label for="address">Address:</label>
+          <input id="address" type="text" formControlName="address">
+      
+          <label for="contactNumber">Contact Number:</label>
+          <input id="contactNumber" type="text" formControlName="contactNumber">
+      
+          <label for="userType">User Type:</label>
+          <select id="userType" formControlName="userType">
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+          </select>
+      
+          <label class="form-label" for="email">Email:</label>
+          <input class="form-control" id="email" type="email" formControlName="email">
+      
+          <label class="form-label" for="password">Password:</label>
+          <input class="form-control" id="password" type="password" formControlName="password">
+      
+          <label for="confirmPassword">Re-enter Password:</label>
+          <input id="confirmPassword" type="password" formControlName="confirmPassword">
+      
+          <label for="profilePicture">Profile Picture:</label>
+          <input id="profilePicture" type="file" >
+      
+          <br>
+          <br>
+          <p >Already a user ? <a href="" routerLink="/login">Login</a></p>
+          <br>
+        <button type="submit" >Register</button>
+      </form>
+</div>
+  
