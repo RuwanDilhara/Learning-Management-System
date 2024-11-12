@@ -1,20 +1,20 @@
 <div class="app-container d-flex"> 
   <!-- Sidebar -->
-  <app-side-bar></app-side-bar>
+  <!-- <app-side-bar></app-side-bar> -->
 
   <!-- Main Content -->
-  <div class="content flex-grow-2 w-100">
+  <!-- <div class="content flex-grow-2 w-100"> -->
     <!-- Header -->
-    <app-header></app-header>
+    <!-- <app-header></app-header> -->
     
     <!-- Main Content -->
-    <div class="main-content p-4" >
+    <!-- <div class="main-content p-4" >
       <router-outlet></router-outlet>
-    </div>
+    </div> -->
     <!-- Footer -->
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer>
  </div>
-</div>
+</div> -->
 <!-- <app-header></app-header>
 <app-side-bar></app-side-bar>
 <app-user-profile></app-user-profile>
@@ -25,3 +25,28 @@
 <app-notes></app-notes>
 <app-goals></app-goals>
 <app-analytics></app-analytics> -->
+
+<div class="row">
+  <!----------------------------- Slid-Bar ------------------------>
+  <div class="col-2 d-flex">
+    <app-side-bar style="position: fixed;"></app-side-bar>
+  </div>
+
+  <div class="col-10 ">
+    <!----------------------------- Header ------------------------>
+    <div class="row">
+      <app-header style="position: fixed; z-index: 1;"></app-header>
+    </div>
+    <!----------------------------- Body ------------------------>
+
+    <div class="row">
+      <router-outlet></router-outlet>
+    </div>
+    <!----------------------------- Footer ------------------------>
+
+    <div class="row">
+      <app-footer></app-footer>
+    </div>
+
+  </div>
+</div>
