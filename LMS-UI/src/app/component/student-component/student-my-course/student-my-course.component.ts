@@ -1,9 +1,10 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-student-my-course',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './student-my-course.component.html',
   styleUrl: './student-my-course.component.css'
 })

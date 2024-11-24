@@ -1,4 +1,4 @@
-<div class="goals">
+<!-- <div class="goals">
     <h2>Your Goals</h2>
     <ul>
       <li>
@@ -7,7 +7,7 @@
         <p><strong>Target Date:</strong> {{ "goal.targetDate" }}</p>
         <p><strong>Status:</strong> {{ "goal.status" }}</p>
         
-        <!-- Progress bar for goal completion -->
+        Progress bar for goal completion
         <div class="progress-container">
           <label><strong>Progress:</strong> {{ "goal.progress" }}%</label>
           <div class="progress-bar">
@@ -15,12 +15,58 @@
           </div>
         </div>
         
-        <!-- Action buttons to edit or delete the goal -->
+        Action buttons to edit or delete the goal
         <div class="actions">
           <button >Edit</button>
           <button >Delete</button>
         </div>
       </li>
     </ul>
+  </div>
+   -->
+
+   <div class="goals-container">
+    <h1>My Goals</h1>
+  
+    <!-- Add New Goal Form -->
+    <div class="add-goal-form">
+      <h3>Add a New Goal</h3>
+      <form>
+      <!-- <form (submit)="addGoal()"> -->
+        <input
+          
+          type="text"
+          placeholder="Goal Title"
+          required
+        />
+        <input
+          
+          type="date"
+          placeholder="Deadline"
+          required
+        />
+        <textarea
+          placeholder="Description"
+        ></textarea>
+        <button type="submit">Add Goal</button>
+      </form>
+    </div>
+  
+    <!-- List of Goals -->
+    <div class="goals-list">
+      <h3>Your Goals</h3>
+      <div  class="goal-item">
+        <h4>{{ "goal.title" }}</h4>
+        <p><strong>Deadline:</strong> {{" goal.deadline" }}</p>
+        <p><strong>Description:</strong> {{ "goal.description" }}</p>
+        <p><strong>Progress:</strong> {{ "goal.progress" }}%</p>
+  
+        <!-- Action Buttons -->
+        <div class="goal-actions">
+          <button >Update</button>
+          <button >Delete</button>
+        </div>
+      </div>
+    </div>
   </div>
   

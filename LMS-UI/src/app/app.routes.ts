@@ -12,9 +12,10 @@ import { StudentAnalyticsComponent } from './component/student-component/student
 import { LoginFormComponent } from './pages/login-form/login-form.component';
 import { RegisterFormComponent } from './pages/register-form/register-form.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ReadMoreCourseComponent } from './component/student-component/read-more-course/read-more-course.component';
 
 export const routes: Routes = [
-    {path:'',redirectTo:'homepage',pathMatch:'full'},
+    {path:'',redirectTo:'student',pathMatch:'full'},
     {
         path:'student',
         component:MainStudentDashboardComponent,
@@ -27,7 +28,10 @@ export const routes: Routes = [
             },
             {
                 path:'all-courses',
-                component:StudentViewAllCoursesComponent
+                component:StudentViewAllCoursesComponent,
+                children:[
+                    
+                ]
                 
             },
             {
@@ -58,7 +62,12 @@ export const routes: Routes = [
             {
                 path:'analiytics',
                 component:StudentAnalyticsComponent              
+            },
+            {
+                path:'readmore-coures',
+                component:ReadMoreCourseComponent
             }
+            
         ]
     },
     {

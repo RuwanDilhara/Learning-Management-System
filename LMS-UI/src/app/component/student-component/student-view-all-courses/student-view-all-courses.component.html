@@ -1,8 +1,17 @@
-<div class="courses">
-    <h2>All Courses</h2>
-    <div class="row">
-        <div  class="col-4">
-            <h1>card ekak hadapm</h1>
+<div class="courses mt-2 bg-blue-900 w-full p-10 rounded-t-lg ">
+  <h1 class="bg-blue-300 p-2 rounded-md m-3" style=" font-size: xx-large; font-weight: 500;">All Courses</h1>
+  <div class="row">
+    <div class="col-4">
+
+
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div *ngFor="let course of courseList"
+          class="max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <app-course-details [course] = "course"></app-course-details>
         </div>
+      </div>
+
+
     </div>
+  </div>
 </div>

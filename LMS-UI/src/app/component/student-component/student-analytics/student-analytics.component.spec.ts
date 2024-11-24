@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StudentAnalyticsComponent } from './student-analytics.component';
 
+import { Chart } from 'chart.js';
+
 describe('StudentAnalyticsComponent', () => {
   let component: StudentAnalyticsComponent;
   let fixture: ComponentFixture<StudentAnalyticsComponent>;

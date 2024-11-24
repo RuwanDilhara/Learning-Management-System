@@ -1,32 +1,45 @@
-<div class="grades">
-    <h2>Your Grades</h2>
-    
-    <div class="grade-summary">
-      <p>Total GPA: 3.8</p>
-      <p>Completed Courses: 6</p>
-      <p>Ongoing Courses: 2</p>
+<div class="courses mt-2 bg-blue-900 w-full p-10 rounded-t-lg ">
+  
+    <h1 class="bg-blue-300 p-2 rounded-md m-3"  style=" font-size: xx-large; font-weight: 500;">My Grades</h1>
+
+    <div class="flex justify-between items-center mb-6 p-4">
+      <div class="text-lg font-medium text-gray-700 text-white" >GPA: <span class="text-green-600 font-bold">3.75</span></div>
+      <div class="text-sm text-gray-500 text-white">Last Updated: <span class="font-semibold">2024-11-20</span></div>
     </div>
-  
-    <ul class="grade-list">
-      <li  class="grade-item">
-        <div class="grade-info">
-          <h3>{{ "grade.course "}}</h3>
-          <p>Instructor: {{ "grade.instructor" }}</p>
-          <p>Grade: {{ "grade.grade" }}</p>
-          <p>Percentage: {{ "grade.percentage" }}%</p>
-          <p>Status: {{ "grade.status" }}</p>
-        </div>
-  
-        <div class="grade-feedback">
-          <h4>Feedback</h4>
-          <p>{{ "grade.feedback" }}</p>
-        </div>
-  
-        <div class="grade-actions">
-          <button class="view-details">View Details</button>
-          <button class="download-report">Download Report</button>
-        </div>
-      </li>
-    </ul>
-  </div>
-  
+    
+    <div class="row text-white">
+        <div  class="col-4">    
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="py-3 px-4 text-left text-gray-700 font-medium">Course</th>
+                <th class="py-3 px-4 text-left text-gray-700 font-medium">Assignment</th>
+                <th class="py-3 px-4 text-left text-gray-700 font-medium">Grade</th>
+                <th class="py-3 px-4 text-left text-gray-700 font-medium">Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b hover:bg-gray-100">
+                <td class="py-4 px-4 ">Mathematics</td>
+                <td class="py-4 px-4">Assignment 1</td>
+                <td class="py-4 px-4 font-bold text-green-600">A</td>
+                <td class="py-4 px-4">Excellent</td>
+              </tr>
+              <tr class="border-b hover:bg-gray-100">
+                <td class="py-4 px-4">Science</td>
+                <td class="py-4 px-4">Project 2</td>
+                <td class="py-4 px-4 font-bold text-yellow-500">B</td>
+                <td class="py-4 px-4">Good Effort</td>
+              </tr>
+              <tr class="border-b hover:bg-gray-100">
+                <td class="py-4 px-4">History</td>
+                <td class="py-4 px-4">Quiz 3</td>
+                <td class="py-4 px-4 font-bold text-red-500">C</td>
+                <td class="py-4 px-4">Needs Improvement</td>
+              </tr>
+            </tbody>
+          </table>
+       </div>
+    </div>
+</div>
+

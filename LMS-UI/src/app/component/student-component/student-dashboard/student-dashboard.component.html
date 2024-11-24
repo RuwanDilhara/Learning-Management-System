@@ -1,39 +1,126 @@
-<div class="dashboard-container">
-    <div class="header">
-        <div class="welcome">Welcome Back, Rruwan!</div>
-        <div class="profile">
-            <img src="https://via.placeholder.com/50" alt="Profile Picture">
-            <span>Student Name</span>
-        </div>
-    </div>
-    <div class="cards">
-        <div class="card">
-            <div class="card-title">My Courses</div>
-            <div>3 Active Courses</div>
-            <div class="progress-bar">
-                <div class="progress-bar-inner" style="width: 75%;"></div>
+<!-- 
+
+
+<div class="courses mt-2 bg-blue-900 w-full p-10 rounded-t-lg ">
+    <h1 class="bg-blue-300 p-2 rounded-md m-3 " style=" font-size: xx-large; font-weight: 500;">Dashboard</h1>
+    <div class="row">
+        <div class="col-4">
+
+
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div *ngFor="let course of courseList" id="course-card "
+                    class="max-w-sm  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <a href="#">
+                        <img class=" w-full h-40 object-cover rounded-t-lg c" src={{course.thumbnailPath}} alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {{course.courseTitle}}</h5>
+                        </a>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{course.description}}</p>
+                        <a href="#"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Read more
+                            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-title">Upcoming Deadlines</div>
-            <ul>
-                <li>Assignment 1 - Due Tomorrow</li>
-                <li>Quiz 2 - Due in 3 days</li>
-            </ul>
-        </div>
-        <div class="card">
-            <div class="card-title">Recent Announcements</div>
-            <p>No new announcements</p>
-        </div>
-        <div class="card">
-            <div class="card-title">Performance</div>
-            <p>Average Grade: 85%</p>
+            
+            <div class="dashboard-container">
+                <div class="header">
+                    <div class="welcome">Welcome Back, Rruwan!</div>
+                    <div class="profile">
+                        <img src="https://via.placeholder.com/50" alt="Profile Picture">
+                        <span>Student Name</span>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-title">My Courses</div>
+                        <div>3 Active Courses</div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-inner" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Upcoming Deadlines</div>
+                        <ul>
+                            <li>Assignment 1 - Due Tomorrow</li>
+                            <li>Quiz 2 - Due in 3 days</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Recent Announcements</div>
+                        <p>No new announcements</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Performance</div>
+                        <p>Average Grade: 85%</p>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <a href="#"><i class="fas fa-calendar-alt"></i> Calendar</a>
+                    <a href="#"><i class="fas fa-book"></i> Assignments</a>
+                    <a href="#"><i class="fas fa-chart-line"></i> Grades</a>
+                    <a href="#"><i class="fas fa-cogs"></i> Settings</a>
+                </div>
+            </div>
+
         </div>
     </div>
-    <!-- <div class="quick-links">
-        <a href="#"><i class="fas fa-calendar-alt"></i> Calendar</a>
-        <a href="#"><i class="fas fa-book"></i> Assignments</a>
-        <a href="#"><i class="fas fa-chart-line"></i> Grades</a>
-        <a href="#"><i class="fas fa-cogs"></i> Settings</a>
-    </div> -->
-</div>
+</div> -->
+
+<!-- Header -->
+<header class="bg-blue-600 text-white p-4 shadow-md">
+    <h1 class="text-2xl font-bold">Welcome, Student!</h1>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container mx-auto p-6">
+    <!-- Dashboard Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Assignments Card -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold mb-4">Assignments</h2>
+        <p class="text-gray-700">3 Pending Assignments</p>
+      </div>
+
+      <!-- Schedule Card -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold mb-4">Schedule</h2>
+        <p class="text-gray-700">Check your timetable for today.</p>
+      </div>
+
+      <!-- Grades Card -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold mb-4">Grades</h2>
+        <p class="text-gray-700">Recent grade: A</p>
+      </div>
+
+      <!-- Calendar Card -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold mb-4">Upcoming Events</h2>
+        <p class="text-gray-700">Math Exam on Friday.</p>
+      </div>
+
+      <!-- Notes Card -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold mb-4">Notes</h2>
+        <p class="text-gray-700">Review Chapter 5 for tomorrow.</p>
+      </div>
+
+      <!-- Goals Card -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-semibold mb-4">Goals</h2>
+        <p class="text-gray-700">Finish all assignments by Sunday.</p>
+      </div>
+
+    </div>
+  </div>
