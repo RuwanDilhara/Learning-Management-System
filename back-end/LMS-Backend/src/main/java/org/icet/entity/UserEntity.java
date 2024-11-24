@@ -7,19 +7,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.icet.dto.Course;
 import org.icet.entity.enums.UserType;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
-@Table(name = "User")
+@Table(name = "users") // Updated table name
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,17 +29,18 @@ public class UserEntity {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String userName;
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
 
     @Email(message = "Invalid email format")
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column(nullable = false)
@@ -56,8 +55,6 @@ public class UserEntity {
     @Column(nullable = false)
     private String profilePictureLink;
 
-    @Transient
-    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "user_courses",
@@ -65,6 +62,4 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
     private List<CourseEntity> enrolledCourses;
-
-
 }

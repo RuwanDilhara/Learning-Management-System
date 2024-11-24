@@ -1,6 +1,7 @@
 package org.icet.service.impl;
 
-import org.icet.service.FileService;
+import org.icet.service.CourseFileService;
+import org.icet.service.ProfileFileService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -10,7 +11,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 @Service
-public class FileServiceImpl implements FileService{
+public class CourseFileServiceImpl implements CourseFileService {
     @Override
     public String uploadFile(String path, MultipartFile file) throws IOException {
         //youTub balan kare

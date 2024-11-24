@@ -5,22 +5,27 @@ import org.icet.dto.User;
 import org.icet.entity.UserEntity;
 import org.icet.entity.enums.UserType;
 import org.icet.repository.UserRepository;
-import org.icet.service.FileService;
+import org.icet.service.ProfileFileService;
 import org.icet.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
+
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final FileService fileService;
+    private final ProfileFileService fileService;
     private final ModelMapper mapper;
 
     @Value("${project.profile}")
@@ -69,6 +74,14 @@ public class UserServiceImpl implements UserService {
             }
         });
         return admins;
+    }
+
+    @Override
+    public User getUserById(Long userId) {
+        return getAllUsers().stream()
+                .filter(user -> user.getUserId().equals(userId))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
@@ -156,12 +169,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User setUser(User user, MultipartFile file) throws IOException {
+
         //youtube eken balan kare
         //1.upload the file
         String uploadFileName = fileService.uploadFile(path, file);
 
         //2.generate the profilePictureLink
-        String profilePictureLink = baseURL + "/file/" +uploadFileName;
+        String profilePictureLink = baseURL + "/file/getProfile/" +uploadFileName;
 
         //3.set the value of field 'profile' as filename and 'URL'
         user.setProfilePicture(uploadFileName);
@@ -170,30 +184,38 @@ public class UserServiceImpl implements UserService {
         //4.save the userEntity object and return it
         System.out.println(mapper.map(user,UserEntity.class));
         UserEntity save = userRepository.save(mapper.map(user, UserEntity.class));
-//
+
         return mapper.map(save,User.class);
-//        return user;
     }
 
     @Override
-    public User updateUser(User user, MultipartFile file) throws IOException {
-        //youtube eken balan kare
-        //1.upload the file
-        String uploadFileName = fileService.uploadFile(path, file);
+    public User updateUser(Long userId , User newUser, MultipartFile file) throws IOException {
 
-        //2.generate the profilePictureLink
-        String profilePictureLink = baseURL + "/file/" +uploadFileName;
+        UserEntity userEntity = userRepository.findById(userId)
+                .orElseThrow(()-> new RuntimeException("User not found with id = "  + userId));
 
-        //3.set the value of field 'profile' as filename and 'URL'
-        user.setProfilePicture(uploadFileName);
-        user.setProfilePictureLink(profilePictureLink);
+        String uploadFileName = userEntity.getProfilePicture();
 
-        //4.save the userEntity object and return it
-        return mapper.map(userRepository.save(mapper.map(user, UserEntity.class)),User.class);
+        if(file != null){
+            Files.deleteIfExists(Paths.get(path + File.separator+uploadFileName));
+            uploadFileName = fileService.uploadFile(path,file);
+        }
+
+        String profilePictureLink = baseURL + "/file/getProfile/" +uploadFileName;
+
+        newUser.setProfilePicture(uploadFileName);
+        newUser.setProfilePictureLink(profilePictureLink);
+
+        return mapper.map(userRepository.save(mapper.map(newUser, UserEntity.class)),User.class);
     }
 
     @Override
-    public void deleteUser(Long userId) {
-        userRepository.deleteById(userId);
+    public void deleteUser(Long userId) throws IOException {
+        UserEntity userEntity = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found with id = " + userId));
+
+        Files.deleteIfExists(Paths.get(path + File.separator +userEntity.getProfilePicture()));
+
+        userRepository.delete(userEntity);
     }
 }

@@ -13,6 +13,8 @@ public interface UserService {
     List<User>getAllTeachers();
     List<User>getAllAdmin();
 
+    User getUserById(Long userId);
+
     User getStudentById(Long userId);
     User getTeacherById(Long userId);
     User getAdminById(Long userId);
@@ -30,9 +32,9 @@ public interface UserService {
     User getAdminByEmail(String email);
 
     User setUser(User user,MultipartFile file) throws IOException;
-    User updateUser(User user,MultipartFile file) throws IOException;
+    User updateUser(Long userId ,User user,MultipartFile file) throws IOException;
 
-    void deleteUser(Long userId);
+    void deleteUser(Long userId) throws IOException;
 
 
 }
